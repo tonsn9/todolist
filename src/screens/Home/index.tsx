@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import { Participant } from "../../components/Participant";
 import {
   Alert,
   FlatList,
@@ -7,34 +9,19 @@ import {
   View,
 } from "react-native";
 
-import { Participant } from "../../components/Participant";
-
 import { styles } from "./styles";
 
 export function Home() {
-  const participants = [
-    "Ton",
-    "Gui",
-    "Danilo",
-    "Wallace",
-    "Charles",
-    "Rafa",
-    "Matheus",
-    "Zeca",
-    "Thamyres",
-    "Douglas",
-    "Rhuan",
-    "Dhiego",
-    "Dhiogo",
-  ];
+  const [participants, setParticipants] = useState(["Ton"]);
 
   function handlePartipantAdd() {
-    if (participants.includes("Ton")) {
+    if (participants.includes("Danilo")) {
       return Alert.alert(
         "Participante existe",
         "Já existe um participante com esse nome na lista "
       );
     }
+    setParticipants((prevState) => [...prevState, "Gui"]);
   }
 
   function handleParticipantRemove(name: string) {
