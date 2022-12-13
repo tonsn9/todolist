@@ -6,6 +6,10 @@ import { styles } from "./styles";
 
 export function Home() {
   function handlePartipantAdd() {}
+
+  function handleParticipantRemove(name: string) {
+    console.log(`Remover participante ${name}`);
+  }
   return (
     <>
       <View style={styles.container}>
@@ -22,14 +26,10 @@ export function Home() {
             <Text style={styles.buttonText}>+</Text>
           </TouchableOpacity>
         </View>
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
-        <Participant />
+        <Participant
+          name="Ton"
+          onRemove={() => handleParticipantRemove("Ton")}
+        />
       </View>
     </>
   );
