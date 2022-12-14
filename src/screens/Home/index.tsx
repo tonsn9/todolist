@@ -52,8 +52,8 @@ export function Home() {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.eventName}>Nome do evento</Text>
-        <Text style={styles.eventDate}>Segunda, 12 de Dezembro de 2022 </Text>
+        <Text style={styles.eventName}>Festa da Helô</Text>
+        <Text style={styles.eventDate}>Quarta, 24 de Setembro de 2023 </Text>
         <View style={styles.form}>
           <TextInput
             style={styles.input}
