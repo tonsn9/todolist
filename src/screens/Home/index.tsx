@@ -12,23 +12,35 @@ import {
 import { styles } from "./styles";
 
 export function Home() {
-  const [participants, setParticipants] = useState(["Ton"]);
+  const [participants, setParticipants] = useState<string[]>([]);
+  const [participantName, setParticipantName] = useState("");
 
   function handlePartipantAdd() {
-    if (participants.includes("Danilo")) {
+    if (participants.includes(participantName)) {
       return Alert.alert(
         "Participante existe",
         "Já existe um participante com esse nome na lista "
       );
     }
-    setParticipants((prevState) => [...prevState, "Gui"]);
+    if (participantName == "") {
+      return Alert.alert("Adicione um usuário não existente!");
+    }
+
+    if (participantName == "Guilherme Camillo") {
+      return Alert.alert("Esse cara é top");
+    }
+    setParticipants((prevState) => [participantName, ...prevState]);
+    setParticipantName("");
   }
 
   function handleParticipantRemove(name: string) {
     return Alert.alert("Remover", `Remover o participante ${name}?`, [
       {
         text: "Sim",
-        onPress: () => Alert.alert("Esse já era"),
+        onPress: () =>
+          setParticipants((prevState) =>
+            prevState.filter((participant) => participant !== name)
+          ),
       },
       {
         text: "Não",
@@ -47,6 +59,8 @@ export function Home() {
             style={styles.input}
             placeholder="Nome do participante"
             placeholderTextColor="#6b6b6b"
+            onChangeText={setParticipantName}
+            value={participantName}
           />
 
           <TouchableOpacity style={styles.button} onPress={handlePartipantAdd}>

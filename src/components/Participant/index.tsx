@@ -1,3 +1,4 @@
+import { TrashSimple } from "phosphor-react-native";
 import { Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 
@@ -11,7 +12,7 @@ export function Participant({ name, onRemove }: Props) {
     <View style={styles.container}>
       <Text style={styles.name}>{name}</Text>
       <TouchableOpacity style={styles.button} onPress={onRemove}>
-        <Text style={styles.buttonText}>-</Text>
+        <TrashSimple size="20px" color="#fff" />
       </TouchableOpacity>
     </View>
   );
