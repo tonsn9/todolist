@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Participant } from "../../components/Participant";
 import {
   Alert,
@@ -10,6 +10,8 @@ import {
 } from "react-native";
 
 import { styles } from "./styles";
+import { createParticipants } from "../../storage/createParticipants";
+import { getParcipants } from "../../storage/getParticipants";
 
 export function Home() {
   const [participants, setParticipants] = useState<string[]>([]);
@@ -29,10 +31,20 @@ export function Home() {
     if (participantName == "Guilherme Camillo") {
       return Alert.alert("Esse cara é top");
     }
-    setParticipants((prevState) => [participantName, ...prevState]);
+    createParticipants(participantName);
     setParticipantName("");
   }
-
+  async function getAllList() {
+    try {
+      const data = await getParcipants();
+      setParticipants(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(() => {
+    getAllList();
+  }, [handlePartipantAdd]);
   function handleParticipantRemove(name: string) {
     return Alert.alert("Remover", `Remover o participante ${name}?`, [
       {
