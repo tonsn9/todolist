@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "imhere",
-    "slug": "imhere",
+    "name": "Camillo",
+    "slug": "camillo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,10 +24,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.tonsoares.camillo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "318880fd-b84b-4e92-b03f-32055764d9c9"
+      }
     }
   }
 }
