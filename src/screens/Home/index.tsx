@@ -52,8 +52,10 @@ export function Home() {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.eventName}>Festa da Helô</Text>
-        <Text style={styles.eventDate}>Quarta, 24 de Setembro de 2023 </Text>
+        <Text style={styles.eventName}>Sua lista Toda</Text>
+        <Text style={styles.eventDate}>
+          Liste quaqluer coisa com o app Camillo{" "}
+        </Text>
         <View style={styles.form}>
           <TextInput
             style={styles.input}
@@ -82,8 +84,7 @@ export function Home() {
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={() => (
             <Text style={styles.listEmptyText}>
-              Ninguém chegou no evento ainda? Adicione participantes a sua lista
-              de presença!
+              Sua lista está vazia! Bora encher isso com tudo que desejar!
             </Text>
           )}
         />
