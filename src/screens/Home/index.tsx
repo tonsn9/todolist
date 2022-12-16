@@ -12,6 +12,7 @@ import {
 import { styles } from "./styles";
 import { createParticipants } from "../../storage/createParticipants";
 import { getParcipants } from "../../storage/getParticipants";
+import { deleteParticipants } from "../../storage/deleteParticipants";
 
 export function Home() {
   const [participants, setParticipants] = useState<string[]>([]);
@@ -45,14 +46,12 @@ export function Home() {
   useEffect(() => {
     getAllList();
   }, [handlePartipantAdd]);
+
   function handleParticipantRemove(name: string) {
     return Alert.alert("Remover", `Remover o participante ${name}?`, [
       {
         text: "Sim",
-        onPress: () =>
-          setParticipants((prevState) =>
-            prevState.filter((participant) => participant !== name)
-          ),
+        onPress: () => deleteParticipants(name),
       },
       {
         text: "Não",
